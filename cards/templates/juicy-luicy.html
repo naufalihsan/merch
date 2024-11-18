@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Juicy Luicy - Official Fan Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Stories CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
+    <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/skins/snapgram.css" />
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+        }
+
+        .header {
+            background: rgb(34, 193, 195);
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .band-name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .stories-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #1a237e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        #stories {
+            margin-top: 1rem;
+        }
+
+        .latest-updates {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .update-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .nav-item {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="band-name">Juicy Luicy</h1>
+        <p>Indonesian Pop Band</p>
+
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-spotify"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Music</a>
+            <a href="#" class="nav-item">Tour</a>
+            <a href="#" class="nav-item">Gallery</a>
+            <a href="#" class="nav-item">About</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="stories-section">
+            <h2 class="section-title">Stories</h2>
+            <div id="stories"></div>
+        </section>
+
+        <section class="latest-updates">
+            <h2 class="section-title">Latest Updates</h2>
+            <div class="update-card">
+                <div class="update-date">November 18, 2024</div>
+                <p>New single "Lantas" out now! Stream it on your favorite platform.</p>
+            </div>
+            <div class="update-card">
+                <div class="update-date">November 15, 2024</div>
+                <p>Join us for our upcoming concert in Jakarta! Tickets available now.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
+    <script>
+        const timestamp = () => Math.floor(Date.now() / 1000);
+
+        const stories = window.Zuck(document.querySelector('#stories'), {
+            backNative: true,
+            previousTap: true,
+            skin: 'Snapgram',
+            autoFullScreen: false,
+            avatars: true,
+            paginationArrows: true,
+            list: false,
+            cubeEffect: true,
+            localStorage: true,
+            stories: [
+                {
+                    id: 'official',
+                    photo: 'https://storage.cloud.google.com/technova-merch/preview.png',
+                    name: 'Juicy Luicy',
+                    time: timestamp(),
+                    items: [
+                        {
+                            id: 'shorts-video',
+                            type: 'video',
+                            length: 0,
+                            src: 'https://storage.cloud.google.com/technova-merch/shorts.mp4',
+                            preview: '',
+                            link: '',
+                            time: timestamp()
+                        },
+                        {
+                            id: 'music-video',
+                            type: 'video',
+                            length: 0,
+                            src: 'https://storage.cloud.google.com/technova-merch/video.mp4',
+                            preview: 'https://storage.cloud.google.com/technova-merch/preview.png',
+                            link: '',
+                            time: timestamp()
+                        }
+                    ]
+                }
+            ]
+        });
+
+        setTimeout(() => {
+            const firstStory = document.querySelector('.story:first-child');
+            if (firstStory) {
+                firstStory.click();
+            }
+        }, 0);
+    </script>
+</body>
+
+</html>
